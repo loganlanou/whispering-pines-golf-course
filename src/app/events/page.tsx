@@ -9,32 +9,53 @@ export const metadata: Metadata = {
 
 const leagues = [
   {
-    name: "Men's League",
-    day: "Tuesdays",
-    time: "5:00 PM",
+    name: "Monday Night Men's League",
+    day: "Monday",
+    time: "Evening",
     description:
-      "Weekly 9-hole league for men of all skill levels. Individual and team competitions throughout the season.",
+      "Weekly 9-hole league for men of all skill levels. Great way to start your week on the course.",
   },
   {
-    name: "Women's League",
-    day: "Wednesdays",
-    time: "5:00 PM",
+    name: "Tuesday Night Men's League & Teams",
+    day: "Tuesday",
+    time: "Evening",
+    description:
+      "Competitive team format for men. Individual and team competitions throughout the season.",
+  },
+  {
+    name: "Tuesday Night Lake Lover's",
+    day: "Tuesday",
+    time: "Evening",
+    description:
+      "A fun, relaxed league perfect for those who love both golf and the lakeside atmosphere.",
+  },
+  {
+    name: "Wednesday Night Men's League",
+    day: "Wednesday",
+    time: "Evening",
+    description:
+      "Weekly 9-hole league for men. Mid-week competition to keep your game sharp.",
+  },
+  {
+    name: "OWL Wednesday Night Men's League",
+    day: "Wednesday",
+    time: "Evening",
+    description:
+      "Special Wednesday evening league with unique format and great camaraderie.",
+  },
+  {
+    name: "Thursday Night Ladies League",
+    day: "Thursday",
+    time: "Evening",
     description:
       "Weekly 9-hole league for women. Fun, friendly competition with a focus on improving your game.",
   },
   {
-    name: "Couples League",
-    day: "Thursdays",
-    time: "5:30 PM",
+    name: "Thursday Night 4 Person Scramble League",
+    day: "Thursday",
+    time: "Evening",
     description:
-      "Mixed doubles format for couples who love golf. Great way to enjoy the game together.",
-  },
-  {
-    name: "Senior League",
-    day: "Fridays",
-    time: "9:00 AM",
-    description:
-      "Morning league for golfers 55 and older. Relaxed pace with competitive spirit.",
+      "Team scramble format perfect for groups of friends. Low-pressure, high-fun format for all skill levels.",
   },
 ];
 
@@ -56,6 +77,22 @@ const events = [
     ),
   },
   {
+    name: "Pat Schroeder Hospice Fundraiser",
+    date: "Annual",
+    description:
+      "A meaningful charity golf event supporting Hospice in memory of Pat Schroeder. Golf for a great cause and support our community.",
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+        />
+      </svg>
+    ),
+  },
+  {
     name: "Member-Guest Tournament",
     date: "Summer",
     description:
@@ -67,22 +104,6 @@ const events = [
           strokeLinejoin="round"
           strokeWidth={2}
           d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
-        />
-      </svg>
-    ),
-  },
-  {
-    name: "Charity Golf Outings",
-    date: "Throughout Season",
-    description:
-      "We host various charity events including the Pat Schroeder Hospice Fundraiser. Golf for a great cause.",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
         />
       </svg>
     ),

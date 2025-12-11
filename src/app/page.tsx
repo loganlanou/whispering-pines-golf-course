@@ -9,28 +9,24 @@ import {
   getTotalYardage,
 } from "@/lib/course-data";
 import { images } from "@/lib/images";
+import ImageSlider from "@/components/ImageSlider";
 
 function HeroSection() {
   return (
-    <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
-      {/* Background Image from actual course */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url('${images.slider[0]}')`,
-        }}
-      />
-      <div className="absolute inset-0 hero-overlay" />
+    <section className="relative h-screen min-h-[700px] flex items-center justify-center overflow-hidden group">
+      {/* Background Image Slider */}
+      <ImageSlider autoPlayInterval={6000} />
+      <div className="absolute inset-0 hero-overlay z-10" />
 
       {/* Animated pine trees silhouette */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 opacity-20">
+      <div className="absolute bottom-0 left-0 right-0 h-32 opacity-20 z-10">
         <svg viewBox="0 0 1440 120" fill="currentColor" className="text-black w-full h-full">
           <path d="M0,120 L0,80 L30,80 L45,40 L60,80 L90,80 L90,120 Z M100,120 L100,60 L130,60 L150,20 L170,60 L200,60 L200,120 Z M220,120 L220,70 L250,70 L270,30 L290,70 L320,70 L320,120 Z M350,120 L350,85 L380,85 L395,50 L410,85 L440,85 L440,120 Z M480,120 L480,65 L510,65 L530,25 L550,65 L580,65 L580,120 Z M620,120 L620,75 L650,75 L670,35 L690,75 L720,75 L720,120 Z M760,120 L760,80 L790,80 L805,45 L820,80 L850,80 L850,120 Z M890,120 L890,60 L920,60 L940,15 L960,60 L990,60 L990,120 Z M1030,120 L1030,70 L1060,70 L1080,30 L1100,70 L1130,70 L1130,120 Z M1170,120 L1170,85 L1200,85 L1215,50 L1230,85 L1260,85 L1260,120 Z M1300,120 L1300,65 L1330,65 L1350,20 L1370,65 L1400,65 L1400,120 Z M1440,120 L1440,75 L1410,75 L1395,40 L1380,75 L1350,75 Z" />
         </svg>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+      <div className="relative z-20 text-center text-white px-4 max-w-5xl mx-auto">
         <p className="text-[var(--gold)] text-lg md:text-xl tracking-[0.3em] uppercase mb-4 animate-fade-in">
           Welcome to
         </p>
@@ -89,7 +85,7 @@ function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-20">
         <svg
           className="w-8 h-8 text-white/50"
           fill="none"
@@ -281,6 +277,79 @@ function CourseHighlights() {
               );
             })}
           </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function PhotoGallery() {
+  // Select 6 scenic hole photos for the gallery
+  const galleryPhotos = [
+    { src: images.holes[8].photo, alt: "Hole 8 - Signature Hole", caption: "Hole #8" },
+    { src: images.holes[3].photo, alt: "Hole 3", caption: "Hole #3" },
+    { src: images.holes[14].photo, alt: "Hole 14", caption: "Hole #14" },
+    { src: images.holes[9].photo, alt: "Hole 9", caption: "Hole #9" },
+    { src: images.holes[18].photo, alt: "Hole 18", caption: "Hole #18" },
+    { src: images.features.courseOverview, alt: "Course Overview", caption: "Course View" },
+  ];
+
+  return (
+    <section className="py-20 bg-[var(--pine-green)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            Course Gallery
+          </h2>
+          <p className="text-lg text-white/70 max-w-2xl mx-auto">
+            Take a visual tour of Whispering Pines and see what makes our course
+            one of the finest in the Chippewa Valley.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {galleryPhotos.map((photo, index) => (
+            <div
+              key={index}
+              className={`relative overflow-hidden rounded-2xl group ${
+                index === 0 ? "col-span-2 row-span-2" : ""
+              }`}
+            >
+              <img
+                src={photo.src}
+                alt={photo.alt}
+                className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
+                  index === 0 ? "h-[400px] md:h-[500px]" : "h-48 md:h-64"
+                }`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <div className="absolute bottom-4 left-4 text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                {photo.caption}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center mt-12">
+          <Link
+            href="/course"
+            className="btn-secondary px-8 py-4 rounded-full font-semibold inline-flex items-center gap-2"
+          >
+            Explore All 18 Holes
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>
@@ -659,6 +728,7 @@ export default function Home() {
     <>
       <HeroSection />
       <CourseHighlights />
+      <PhotoGallery />
       <AmenitiesSection />
       <SimulatorCTA />
       <LocationPreview />

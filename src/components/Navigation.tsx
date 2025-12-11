@@ -6,12 +6,13 @@ import { courseInfo } from "@/lib/course-data";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/course", label: "The Course" },
-  { href: "/clubhouse", label: "Clubhouse" },
-  { href: "/rates", label: "Rates" },
-  { href: "/simulator", label: "Simulator" },
+  { href: "/course", label: "Course" },
   { href: "/events", label: "Events" },
-  { href: "/contact", label: "Contact" },
+  { href: "/rates", label: "Rates" },
+  { href: "/location", label: "Location" },
+  { href: "/pro-shop", label: "Pro Shop" },
+  { href: "/menu", label: "Menu" },
+  { href: "/weather", label: "Weather" },
 ];
 
 export default function Navigation() {
