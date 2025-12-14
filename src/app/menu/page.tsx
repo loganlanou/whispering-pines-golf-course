@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { courseInfo } from "@/lib/course-data";
 import { images } from "@/lib/images";
+import FacebookFeed from "@/components/FacebookFeed";
 
 export const metadata: Metadata = {
   title: "Menu | Whispering Pines Golf Course",
@@ -86,19 +87,19 @@ export default function MenuPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Menu Page 1 */}
+            {/* Menu Front */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="https://whisperingpinesgc.net/wp-content/uploads/2025/03/2025-menu-1.jpg"
-                alt="Whispering Pines Menu Page 1"
+                src="/images/menu/menu-front.jpg"
+                alt="Whispering Pines Menu - Front"
                 className="w-full h-auto"
               />
             </div>
-            {/* Menu Page 2 */}
+            {/* Menu Back */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="https://whisperingpinesgc.net/wp-content/uploads/2025/03/2025-menu-2.jpg"
-                alt="Whispering Pines Menu Page 2"
+                src="/images/menu/menu-back.jpg"
+                alt="Whispering Pines Menu - Back"
                 className="w-full h-auto"
               />
             </div>
@@ -113,7 +114,7 @@ export default function MenuPage() {
             </div>
             <div className="max-w-2xl mx-auto bg-white rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="https://whisperingpinesgc.net/wp-content/uploads/2025/05/wpg-specials-8-5-25.png"
+                src="/images/menu/specials.png"
                 alt="Weekly Specials"
                 className="w-full h-auto"
               />
@@ -122,8 +123,99 @@ export default function MenuPage() {
         </div>
       </section>
 
-      {/* On-Course Service */}
+      {/* Facebook Feed & First Tee Section */}
       <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Facebook Feed - Takes up 2 columns */}
+            <div className="lg:col-span-2">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-[var(--pine-green)] mb-4">
+                  Follow Us on Facebook
+                </h2>
+                <p className="text-gray-600">
+                  Stay up to date with the latest news, specials, and events at Whispering Pines.
+                </p>
+              </div>
+              <FacebookFeed />
+            </div>
+
+            {/* First Tee Ad */}
+            <div className="lg:col-span-1">
+              <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold text-[var(--pine-green)] mb-4">
+                  Junior Golf
+                </h2>
+                <p className="text-gray-600">
+                  We proudly support The First Tee program.
+                </p>
+              </div>
+              <a
+                href="https://firsttee.org/chapter/western-wisconsin/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-[var(--cream)] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="p-8 text-center">
+                  <div className="mb-6">
+                    <img
+                      src="https://firsttee.org/wp-content/themes/developer/images/firsttee-logo-full-color.svg"
+                      alt="The First Tee"
+                      className="h-24 mx-auto"
+                    />
+                  </div>
+                  <h3 className="text-xl font-bold text-[var(--pine-green)] mb-3">
+                    The First Tee - Western Wisconsin
+                  </h3>
+                  <p className="text-gray-600 mb-4 text-sm">
+                    Building game changers by providing educational programs that build
+                    character, instill life-enhancing values, and promote healthy choices
+                    through the game of golf.
+                  </p>
+                  <div className="bg-[var(--pine-green)] text-white px-6 py-3 rounded-full inline-flex items-center gap-2 font-semibold">
+                    Learn More
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+
+              {/* Additional Community Support */}
+              <div className="mt-6 bg-[var(--pine-green)]/5 rounded-2xl p-6">
+                <h4 className="font-bold text-[var(--pine-green)] mb-3 text-center">
+                  Community Partners
+                </h4>
+                <p className="text-gray-600 text-sm text-center mb-4">
+                  Whispering Pines is proud to support local youth golf programs
+                  and community initiatives throughout the Chippewa Valley.
+                </p>
+                <div className="text-center">
+                  <a
+                    href={`tel:${courseInfo.phone.replace(/[^\d]/g, "")}`}
+                    className="text-[var(--pine-green)] font-semibold hover:text-[var(--accent)] transition-colors"
+                  >
+                    Contact us about junior programs
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* On-Course Service */}
+      <section className="py-16 bg-[var(--cream)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-[var(--pine-green)] mb-4">
@@ -136,7 +228,7 @@ export default function MenuPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[var(--cream)] rounded-2xl p-8 text-center">
+            <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
               <div className="w-16 h-16 bg-[var(--pine-green)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-[var(--pine-green)]"
@@ -160,7 +252,7 @@ export default function MenuPage() {
               </p>
             </div>
 
-            <div className="bg-[var(--cream)] rounded-2xl p-8 text-center">
+            <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
               <div className="w-16 h-16 bg-[var(--pine-green)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-[var(--pine-green)]"
@@ -184,7 +276,7 @@ export default function MenuPage() {
               </p>
             </div>
 
-            <div className="bg-[var(--cream)] rounded-2xl p-8 text-center">
+            <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
               <div className="w-16 h-16 bg-[var(--pine-green)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg
                   className="w-8 h-8 text-[var(--pine-green)]"
