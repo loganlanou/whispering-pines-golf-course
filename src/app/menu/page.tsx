@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { courseInfo } from "@/lib/course-data";
-import { images } from "@/lib/images";
+import { images, img } from "@/lib/images";
 import FacebookFeed from "@/components/FacebookFeed";
 
 export const metadata: Metadata = {
@@ -91,7 +91,7 @@ export default function MenuPage() {
             {/* Menu Front */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="/images/menu/menu-front.jpg"
+                src={img("/images/menu/menu-front.jpg")}
                 alt="Whispering Pines Menu - Front"
                 className="w-full h-auto"
               />
@@ -99,7 +99,7 @@ export default function MenuPage() {
             {/* Menu Back */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="/images/menu/menu-back.jpg"
+                src={img("/images/menu/menu-back.jpg")}
                 alt="Whispering Pines Menu - Back"
                 className="w-full h-auto"
               />
@@ -115,7 +115,7 @@ export default function MenuPage() {
             </div>
             <div className="max-w-2xl mx-auto bg-white rounded-2xl overflow-hidden shadow-lg">
               <img
-                src="/images/menu/specials.png"
+                src={img("/images/menu/specials.png")}
                 alt="Weekly Specials"
                 className="w-full h-auto"
               />
